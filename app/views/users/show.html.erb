@@ -1,0 +1,87 @@
+<h2>My Profile</h2>
+
+  <b>User #<%= @user.id %></b>
+  <br>
+
+  <b>Username:</b>
+  <%= @user.username %>
+  <br>
+
+  <b>Givenname:</b>
+  <%= @user.givenname %>
+  <br>
+
+  <b>Surname:</b>
+  <%= @user.surname %>
+  <br>
+
+  <b>Gender:</b>
+  <%= @user.gender %>
+  <br>
+
+  <b>Age:</b>
+  <%= @user.age %>
+  <br>
+
+  <b>Email:</b>
+  <%= @user.email %>
+  <br>
+
+  <b>Phone Number:</b>
+  <%= @user.phone %>
+  <br>
+
+  <b>Organization:</b>
+  <%= @user.organization %>
+  <br>
+
+<% if @user.interest == "administrator" %>
+  <br>
+  This is an adminstrator log in.
+  <br>
+  <p><%= link_to "Edit Profile", updateprofile_url %></p>
+
+<% else %>
+  <b>Grade:</b>
+  <%= @user.grade %>
+  <br>
+
+  <b>Interest / Background:</b>
+  <%= @user.interest %>
+  <br>
+  <p><%= link_to "Edit Profile", updateprofile_url %></p>
+
+  <hr width=100%, color=#858D87>
+
+  <h2>My Programs</h2>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Section</th>
+        <th>Course</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+
+    <% @user.programs.each do |p| %>
+      <tbody>
+        <tr>
+          <td><%= p.title %></td>
+          <td><%= p.section %></td>
+          <td><%= p.course %></td>
+          <td><%= p.startdate %></td>
+          <td><%= p.enddate %></td>
+        </tr>
+      </tbody>
+    <% end %>
+
+  </table>
+  
+<% end %>
+
+
+

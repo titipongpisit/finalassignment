@@ -1,0 +1,30 @@
+<h1>LeadImpact^x Program Application Form</h1>
+
+<h2>Application Instructions</h2>
+<li>Apply to your program of interest below</li>
+<li>We will email you the offline application form once we receive your online application</li>
+<li>Finish your application at your own pace</li>
+<li>Email your application to info@leadimpactx.com prior to the application deadline (late applications will not be accepted)</li>
+<li>We will contact you within two weeks of receiving your application to schedule an interview</li>
+
+<br>
+
+<% if session["user_id"].present? %>
+  <% user = User.find_by_id(session["user_id"])%>
+  <h2>Basic Information</h2>
+      Hello, <%= user.username %>! Please fill out the following information:<br>
+      <br>
+
+      <%= form_tag(myprofile_url(user), method: 'post') %>
+
+        <%= label_tag :program_id, "Programs:" %><br>
+        <%= select_tag :program_id,
+            options_from_collection_for_select(Program.all, :id, :title) %>
+        <br>
+
+        <%= submit_tag "Submit" %>
+
+<% else %>
+  Please <%= link_to "log in", login_url %> first.
+
+<% end %>

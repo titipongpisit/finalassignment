@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeadImpactApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <h1><%= link_to "LeadImpact^x", home_url %></h1>
+    <nav>
+      <%= link_to "About Us", aboutus_url %> |
+      <%= link_to "Our Programs", ourprograms_url %> |
+      <%= link_to "Get Involved", getinvolved_url %> |
+      <%= link_to "Career", careers_url %> |
+      <%= link_to "News & Updates", updates_url %> |			
+      <%= link_to "Contact Us", contactus_url %> |
+      
+
+      <% if session["user_id"].present? %>
+        <% user = User.find_by_id(session["user_id"]) %>
+        Hello, <%= user.username %>!
+        <%= link_to "My Profile", myprofile_url(user) %>
+        <%= link_to "Sign Out", "/logout" %>
+
+        <% if user.interest == "administrator" %>
+            | <%= link_to "Users Overview", users_url %>
+              <%= link_to "Programs Overview", programoverview_url %>
+              <%= link_to "Subcription / Messages", contactsummary_url %>
+        <% end %>
+
+      <% else %>
+        <%= link_to "Join Our Mailing List", subscribe_url %> |
+        <%= link_to "Sign Up", signup_url %>
+        <%= link_to "Login", login_url %>
+      
+      <% end %>
+
+    </nav>
+  </header>
+
+  <hr width=100%, color=#858D87>
+
+  <div class="notice"><%= notice %></div>
+  
+<%= yield %>
+
+</body>
+</html>
+
+
+
+
+
+

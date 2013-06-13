@@ -1,0 +1,42 @@
+<h2>Programs Overview</h2>
+
+<% @programs.each do |program| %>
+  <b><%= program.title%></b>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Givenname</th>
+          <th>Surname</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Interest</th>
+        </tr>
+      </thead>
+
+      <% program.users.each do |user| %>
+          <tbody>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.givenname %></td>
+            <td><%= user.surname %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.interest %></td>
+          </tr>
+          </tbody>         
+      <% end %>
+
+    </table>
+  
+  <br>
+  <br>
+  <br>
+
+<% end %>

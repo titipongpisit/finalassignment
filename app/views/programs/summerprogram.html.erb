@@ -1,0 +1,33 @@
+<h2>Summer Program</h2>
+
+During the summer program, you will learn:<br>
+<br>
+
+<b> Module 1 </b>
+- Self Awareness<br>
+- Social Awareness<br>
+- Project Design<br>
+<br>
+
+<b> Module 2 </b><br>
+- Project Execution<br>
+- Project Delivery<br>
+<br>
+
+<b> Date </b> <br>
+July 15 - September 15, 2013 <br>
+Monday - Friday; 5.30 - 8.30 pm <br>
+<br>
+
+<b> Application Fee </b> <br>
+Fees: RMB 16,000 (Early Bird) / RMB 18,000 (Normal Registration)	
+
+<% if session["user_id"].present? %>
+    <% user = User.find_by_id(session["user_id"]) %>
+	<% if user.interest == "student" %>
+		<p><%= link_to "Apply Now", apply_url(user) %></p>
+	<% end %>
+<% else %>
+	<br><br>
+	<b>Please <%= link_to "log in", login_url %> first if you are interested in applying to this program.</b>
+<% end %>

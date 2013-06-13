@@ -1,0 +1,20 @@
+<h1>Contact Us</h1>
+
+<h2>Fill out the form below to get in touch with our LeadImpact^x team.</h2>
+<b>To receive regular updates and announcements, please <%= link_to "sign up", subscribe_url %> for our newsletter.</b><br>
+
+<br>
+
+<%= form_tag(contactus_url, method: 'post') do %>
+
+    <%= label_tag :email, "Email:" %>
+    <%= text_field_tag :email, "", size: 80, placeholder: "Enter your email address here..." %>
+  	<br>
+  	<br>
+    <%= label_tag :message, "Your message:" %></br>
+    <%= text_area_tag :message, "", rows: 20, cols: 80, placeholder: "Enter your message here..." %></br>
+  	<br>
+
+  <%= submit_tag "Submit" %>
+
+<% end %>

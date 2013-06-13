@@ -1,0 +1,14 @@
+<h1>Subscribe</h1>
+
+<h2>The best way to stay "in the know" is to subscribe to our email updates.</h2>
+
+<%= form_tag(subscribe_url, method: 'post') do %>
+
+    <%= label_tag :email, "Email:" %>
+    <%= text_field_tag :email, "", size: 80, placeholder: "Enter your email address here..." %>
+	<br>
+	<br>
+	
+	<%= submit_tag "Subscribe" %>
+
+<% end %>

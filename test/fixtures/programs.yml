@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  serialnumber: MyString
+  title: MyString
+  section: 1
+  course: 1
+  startdate: MyString
+  enddate: MyString
+  age: 1
+  grade: 1
+  user_id: MyString
+
+two:
+  serialnumber: MyString
+  title: MyString
+  section: 1
+  course: 1
+  startdate: MyString
+  enddate: MyString
+  age: 1
+  grade: 1
+  user_id: MyString

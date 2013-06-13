@@ -1,0 +1,22 @@
+<h2>Subscription and Messages Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @contacts.each do |c| %>
+    <tr>
+      <td><%= c.email %></td>
+      <td><%= c.message %></td>
+      <td><%= c.messagetype %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>

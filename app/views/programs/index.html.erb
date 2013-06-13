@@ -1,0 +1,50 @@
+<h1>Our Programs</h1>
+
+<h2>Social Entrepreneurship Summer Camp</h2>
+<li>Stay in the loop by <%= link_to "signing up", subscribe_url %> for LeadImpactx’s newsletter.</li>
+<li><%= link_to "Learn More", summerprogram_url %></li>
+
+<br>
+
+<h2>Annual Afterschool Program</h2>
+<li>Stay in the loop by <%= link_to "signing up", subscribe_url %> for LeadImpactx’s newsletter.</li>
+<li><%= link_to "Learn More", afterschool_url %></li>
+
+<br>
+
+<% if session["user_id"].present? %>
+	
+    <% user = User.find_by_id(session["user_id"]) %>
+	<% if user.interest == "administrator" %>
+	
+		<hr width=100%, color=#858D87>
+
+		<h2>Programs List</h2>
+
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Serial Number</th>
+		      <th>Title</th>
+		      <th>Section</th>
+		      <th>Course</th>
+		      <th>Start Date</th>
+		      <th>End Date</th>      
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		  <% @programs.each do |p| %>
+		    <tr>
+		      <td><%= p.serialnumber %></td>
+		      <td><%= p.title %></td>
+		      <td><%= p.section %></td>
+		      <td><%= p.course %></td>
+		      <td><%= p.startdate %></td>
+		      <td><%= p.enddate %></td>
+		    </tr>
+		  <% end %>
+		</tbody>
+		</table>
+	<% end %>
+<% end %>

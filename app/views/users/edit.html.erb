@@ -1,0 +1,80 @@
+<h2>Update My Profile</h2>
+
+<b>User #<%= @user.id %></b>
+<br>
+
+<%= form_tag(myprofile_url(@user), method: 'put') do %>
+
+  <div>
+    Username: <%= @user.username %>
+  </div>
+  <br>
+
+
+  <%= label_tag :givenname, "Given Name:" %>
+  <%= text_field_tag :givenname, @user.givenname, size: 30 %>
+  
+  <%= label_tag :surname, "Surname:" %>
+  <%= text_field_tag :surname, @user.surname, size: 30 %>
+  <br>
+
+  <%= label_tag :age, "Age:" %>
+  <%= number_field_tag :age, @user.age, size: 4 %>
+  <br>  
+
+  <%= label_tag :gender, "Gender:" %>
+    <%= radio_button_tag(:gender, "male") %>
+    <%= label_tag(:gender_male, "Male") %>
+    <%= radio_button_tag(:gender, "female") %>
+    <%= label_tag(:gender_female, "Female") %>
+  </br>
+  
+  <%= label_tag :email, "Email:" %>
+  <%= text_field_tag :email, @user.email, size: 80%>
+  <br>
+
+  <%= label_tag :phone, "Phone #:" %>
+  <%= text_field_tag :phone, @user.phone, size: 80 %>
+  <br>
+
+<% if @user.interest == "administrator" %>
+  <br>
+  This is an administrator log in.
+  <br>
+  <br>
+
+<% else %>
+  <%= label_tag :organization, "Organization:" %>
+  <%= text_field_tag :organization, @user.organization, size: 80 %>
+  <br>
+  <%= label_tag :grade, "Grade (if applicable):" %>
+  <%= number_field_tag :grade, @user.grade, size: 4 %>
+  <br>
+  <br>
+
+  <%= label_tag :interest, "Please indicate your interest or background:" %>
+  <br>
+    <%= radio_button_tag(:interest, "student") %>
+    <%= label_tag(:interest_student, "I am a student") %>
+    <br>
+    <%= radio_button_tag(:interest, "parent") %>
+    <%= label_tag(:interest_parent, "I am a parent") %>
+    <br>
+    <%= radio_button_tag(:interest, "volunteer") %>
+    <%= label_tag(:interest_volunteer, "I would like to volunteer") %>
+    <br>
+    <%= radio_button_tag(:interest, "sponsor") %>
+    <%= label_tag(:interest_sponsor, "I would like to become a sponsor") %>
+    <br>
+    <%= radio_button_tag(:interest,"general") %>
+    <%= label_tag(:interest_general, "I would like more general information") %>
+    <br>
+  <br>
+
+  <% end %>
+
+  <div>
+    <%= submit_tag "Update Profile" %>
+  </div>
+
+<% end %>
